@@ -1,0 +1,1943 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../overview/">
+      
+      
+        <link rel="next" href="../shacl-validation/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.20">
+    
+    
+      
+        <title>Schema - FAIR² Specification</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.e53b48f4.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/css/overrides.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#fair2-schema" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="FAIR² Specification" class="md-header__button md-logo" aria-label="FAIR² Specification" data-md-component="logo">
+      
+  <img src="../../assets/images/fair2-logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            FAIR² Specification
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Schema
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="FAIR² Specification" class="md-nav__button md-logo" aria-label="FAIR² Specification" data-md-component="logo">
+      
+  <img src="../../assets/images/fair2-logo.png" alt="logo">
+
+    </a>
+    FAIR² Specification
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Specification
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Specification
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Schema
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Schema
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resource-types-covered-in-fair2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Resource Types Covered in FAIR²
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Resource Types Covered in FAIR²">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-fair2-extends-these-resource-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      How FAIR² Extends These Resource Types
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dataset-schema-datasetshape" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dataset Schema (DatasetShape)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Dataset Schema (DatasetShape)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#key-properties-of-fair2-datasets" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Properties of FAIR² Datasets
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#recommended-properties" class="md-nav__link">
+    <span class="md-ellipsis">
+      Recommended Properties
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#optional-properties" class="md-nav__link">
+    <span class="md-ellipsis">
+      Optional Properties
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dataset-distribution-schema" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dataset Distribution Schema
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Dataset Distribution Schema">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#key-properties" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Properties
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../shacl-validation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SHACL Validation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ontology/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    FAIR² Ontology
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../methods/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Methods
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../access-agreements/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Access Agreements
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../responsible-ai/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Responsible AI
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../provenance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Provenance and Citations
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Integration
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Integration
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../integration/ml-croissant/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ML Croissant
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../integration/schema-org/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Schema.org
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../integration/prov-o/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    PROV-O
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../integration/units-qudt-om/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Units
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../integration/contributor-roles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Contributor Roles
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../integration/croissant-rai/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Croissant RAI
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../integration/google-rich-search/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Google Rich Search
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../integration/odps/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ODPS Integration
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../examples/example-walkthrough/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Examples
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Community
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Community
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../community/contributing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Contributing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../community/governance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Governance
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../community/roadmap/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Roadmap
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resource-types-covered-in-fair2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Resource Types Covered in FAIR²
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Resource Types Covered in FAIR²">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-fair2-extends-these-resource-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      How FAIR² Extends These Resource Types
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dataset-schema-datasetshape" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dataset Schema (DatasetShape)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Dataset Schema (DatasetShape)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#key-properties-of-fair2-datasets" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Properties of FAIR² Datasets
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#recommended-properties" class="md-nav__link">
+    <span class="md-ellipsis">
+      Recommended Properties
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#optional-properties" class="md-nav__link">
+    <span class="md-ellipsis">
+      Optional Properties
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dataset-distribution-schema" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dataset Distribution Schema
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Dataset Distribution Schema">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#key-properties" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Properties
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="fair2-schema">FAIR² Schema</h1>
+<h2 id="overview">Overview</h2>
+<p>The core of FAIR² is the <strong>DatasetShape</strong>, which extends existing metadata standards to support AI applications.</p>
+<hr />
+<h2 id="resource-types-covered-in-fair2">Resource Types Covered in FAIR²</h2>
+<p>FAIR² supports a broad range of <strong>research resources</strong> to ensure <strong>AI-ready, FAIR-compliant data management</strong>. These include datasets, metadata records, methodology descriptions, and file structures.</p>
+<table>
+<thead>
+<tr>
+<th><strong>Resource Type</strong></th>
+<th><strong>Description</strong></th>
+<th><strong>Schema Mapping</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Datasets (<code>schema:Dataset</code>)</strong></td>
+<td>Primary research datasets, including structured and unstructured data files.</td>
+<td><code>schema:Dataset</code>, <code>cr:DatasetShape</code></td>
+</tr>
+<tr>
+<td><strong>Scholarly Articles (<code>schema:ScholarlyArticle</code>)</strong></td>
+<td>Research publications describing datasets, methodologies, or findings.</td>
+<td><code>schema:ScholarlyArticle</code>, <code>fair2s:DataArticleShape</code></td>
+</tr>
+<tr>
+<td><strong>Methodology &amp; Workflows (<code>fair2:Method</code>)</strong></td>
+<td>Descriptions of methods used in research, including computational workflows.</td>
+<td><code>fair2s:MethodShape</code>, <code>fair2s:StepShape</code></td>
+</tr>
+<tr>
+<td><strong>Visualizations (<code>fair2:Visualization</code>)</strong></td>
+<td>Graphs, plots, and interactive visual representations of datasets.</td>
+<td><code>fair2:Visualization</code>, <code>schema:ImageObject</code></td>
+</tr>
+<tr>
+<td><strong>Data Records (<code>cr:RecordSet</code>)</strong></td>
+<td>Individual data points, records, or observations within datasets.</td>
+<td><code>cr:RecordSet</code>, <code>fair2s:RecordSetShape</code></td>
+</tr>
+<tr>
+<td><strong>Fields (<code>cr:Field</code>)</strong></td>
+<td>Metadata describing <strong>individual attributes/columns</strong> in tabular datasets.</td>
+<td><code>cr:Field</code>, <code>schema:PropertyValue</code></td>
+</tr>
+<tr>
+<td><strong>Files (<code>cr:FileObject</code>)</strong></td>
+<td>Individual files within a dataset (e.g., CSV, images, logs).</td>
+<td><code>cr:FileObject</code>, <code>schema:MediaObject</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="how-fair2-extends-these-resource-types"><strong>How FAIR² Extends These Resource Types</strong></h3>
+<ul>
+<li><strong>AI/ML Ready</strong> – Ensures datasets, fields, and file objects are <strong>structured for AI workflows</strong>.</li>
+<li><strong>Methodology Tracking</strong> – Captures <strong>research steps, data transformations, and provenance</strong>.</li>
+<li><strong>Visualization Support</strong> – Enables <strong>dataset interpretability with graphical outputs</strong>.</li>
+<li><strong>SHACL Validation</strong> – Ensures <strong>schema consistency across datasets</strong>.</li>
+</ul>
+<hr />
+<h2 id="dataset-schema-datasetshape"><strong>Dataset Schema (<code>DatasetShape</code>)</strong></h2>
+<p>The <code>DatasetShape</code> is the main schema used in FAIR² to describe datasets.</p>
+<h3 id="key-properties-of-fair2-datasets">Key Properties of FAIR² Datasets</h3>
+<table>
+<thead>
+<tr>
+<th><strong>Property</strong></th>
+<th><strong>Type</strong></th>
+<th><strong>Description</strong></th>
+<th><strong>Constraints</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>@context</code></td>
+<td><code>URL</code></td>
+<td>JSON-LD context definitions for metadata.</td>
+<td>Required (exactly 1)</td>
+</tr>
+<tr>
+<td><code>@type</code></td>
+<td><code>Text</code></td>
+<td>Declares the type of dataset (e.g., <code>schema:Dataset</code>).</td>
+<td>Required (exactly 1)</td>
+</tr>
+<tr>
+<td><code>dct:conformsTo</code></td>
+<td><code>URL</code></td>
+<td>Declares conformance to FAIR² and ML Croissant specifications.</td>
+<td>Required (min 1)</td>
+</tr>
+<tr>
+<td><code>schema:name</code></td>
+<td><code>xsd:string</code></td>
+<td>The name of the dataset.</td>
+<td>Required (exactly 1)</td>
+</tr>
+<tr>
+<td><code>schema:description</code></td>
+<td><code>xsd:string</code></td>
+<td>A short textual description of the dataset.</td>
+<td>Required (exactly 1)</td>
+</tr>
+<tr>
+<td><code>schema:version</code></td>
+<td><code>xsd:string</code></td>
+<td>Version identifier for the dataset.</td>
+<td>Required (exactly 1)</td>
+</tr>
+<tr>
+<td><code>schema:distribution</code></td>
+<td><code>cr:FileObject</code> or <code>cr:FileSet</code></td>
+<td>Describes the dataset’s distribution resources.</td>
+<td>Required (min 1)</td>
+</tr>
+<tr>
+<td><code>schema:author</code></td>
+<td><code>fair2:Author</code></td>
+<td>The author(s) of the dataset.</td>
+<td>Required (min 1)</td>
+</tr>
+<tr>
+<td><code>schema:creator</code></td>
+<td><code>schema:Person</code> or <code>schema:Organization</code></td>
+<td>Identifies dataset creators (with CRediT roles).</td>
+<td>Required (min 1)</td>
+</tr>
+<tr>
+<td><code>fair2:method</code></td>
+<td><code>fair2:Method</code></td>
+<td>Details the methods used to generate the dataset.</td>
+<td>Required (min 1)</td>
+</tr>
+<tr>
+<td><code>cr:recordSet</code></td>
+<td><code>cr:RecordSet</code></td>
+<td>Represents structured data in the dataset.</td>
+<td>Required (min 1)</td>
+</tr>
+<tr>
+<td><code>schema:funding</code></td>
+<td><code>schema:Grant</code></td>
+<td>Funding information for the dataset.</td>
+<td>Required (min 1)</td>
+</tr>
+<tr>
+<td><code>schema:datePublished</code></td>
+<td><code>xsd:date</code></td>
+<td>Date the dataset was published.</td>
+<td>Required (exactly 1)</td>
+</tr>
+<tr>
+<td><code>schema:identifier</code></td>
+<td><code>xsd:anyURI</code></td>
+<td>A unique identifier for the dataset (DOI, URL, etc.).</td>
+<td>Required (min 1)</td>
+</tr>
+<tr>
+<td><code>schema:license</code></td>
+<td><code>xsd:anyURI</code></td>
+<td>The dataset's license.</td>
+<td>Required (min 1)</td>
+</tr>
+<tr>
+<td><code>schema:citation</code></td>
+<td><code>xsd:string</code></td>
+<td>A reference to another creative work citing this dataset.</td>
+<td>Required (min 1)</td>
+</tr>
+<tr>
+<td><code>cr:citeAs</code></td>
+<td><code>xsd:string</code></td>
+<td>The preferred way to cite this dataset.</td>
+<td>Required (min 1, max 1)</td>
+</tr>
+<tr>
+<td><code>schema:conformsTo</code></td>
+<td><code>xsd:anyURI</code></td>
+<td>The standard the dataset conforms to.</td>
+<td>Required (min 1, max 1)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="recommended-properties"><strong>Recommended Properties</strong></h3>
+<table>
+<thead>
+<tr>
+<th><strong>Property</strong></th>
+<th><strong>Type</strong></th>
+<th><strong>Description</strong></th>
+<th><strong>Constraints</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>schema:keywords</code></td>
+<td><code>xsd:string</code>, <code>URL</code>, <code>DefinedTerm</code></td>
+<td>Keywords or tags describing the dataset.</td>
+<td>Recommended (min 1)</td>
+</tr>
+<tr>
+<td><code>schema:publisher</code></td>
+<td><code>schema:Person</code> or <code>schema:Organization</code></td>
+<td>Entity responsible for publishing the dataset.</td>
+<td>Recommended (min 1)</td>
+</tr>
+<tr>
+<td><code>schema:dateCreated</code></td>
+<td><code>xsd:date</code></td>
+<td>The date the dataset was first created.</td>
+<td>Recommended (exactly 1)</td>
+</tr>
+<tr>
+<td><code>schema:dateModified</code></td>
+<td><code>xsd:date</code></td>
+<td>The date the dataset was last modified.</td>
+<td>Recommended (exactly 1)</td>
+</tr>
+<tr>
+<td><code>schema:sameAs</code></td>
+<td><code>xsd:anyURI</code></td>
+<td>URL of another resource representing the same dataset.</td>
+<td>Recommended (min 1)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="optional-properties"><strong>Optional Properties</strong></h3>
+<table>
+<thead>
+<tr>
+<th><strong>Property</strong></th>
+<th><strong>Type</strong></th>
+<th><strong>Description</strong></th>
+<th><strong>Constraints</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>fair2:dataArticle</code></td>
+<td><code>fair2:DataArticle</code></td>
+<td>Metadata of a related data article.</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td><code>rai:ethicsReview</code></td>
+<td><code>xsd:string</code></td>
+<td>Ethical assessments related to the dataset.</td>
+<td>Optional (min 1)</td>
+</tr>
+<tr>
+<td><code>rai:dataBiases</code></td>
+<td><code>xsd:string</code></td>
+<td>Documents known biases in the dataset.</td>
+<td>Optional (min 1)</td>
+</tr>
+<tr>
+<td><code>rai:dataLimitations</code></td>
+<td><code>xsd:string</code></td>
+<td>Specifies known limitations or constraints of the dataset.</td>
+<td>Optional (min 1)</td>
+</tr>
+<tr>
+<td><code>cr:citeAs</code></td>
+<td><code>xsd:string</code></td>
+<td>Citation for the dataset, ideally in BibTeX format.</td>
+<td>Optional (exactly 1)</td>
+</tr>
+<tr>
+<td><code>fair2:isLiveDataset</code></td>
+<td><code>xsd:boolean</code></td>
+<td>Indicates whether the dataset is live and subject to updates.</td>
+<td>Optional (exactly 1)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="dataset-distribution-schema"><strong>Dataset Distribution Schema</strong></h2>
+<p>The <strong><code>schema:distribution</code></strong> property defines the dataset files.</p>
+<h3 id="key-properties"><strong>Key Properties</strong></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>schema:contentSize</code></td>
+<td><code>xsd:integer</code></td>
+<td>File size in bytes.</td>
+</tr>
+<tr>
+<td><code>schema:contentUrl</code></td>
+<td><code>xsd:anyURI</code></td>
+<td>URL to download the file.</td>
+</tr>
+<tr>
+<td><code>schema:description</code></td>
+<td><code>xsd:string</code></td>
+<td>A description of the dataset file.</td>
+</tr>
+<tr>
+<td><code>schema:encodingFormat</code></td>
+<td><code>xsd:string</code></td>
+<td>The file format (e.g., CSV, JSON).</td>
+</tr>
+<tr>
+<td><code>schema:name</code></td>
+<td><code>xsd:string</code></td>
+<td>The name of the dataset file.</td>
+</tr>
+<tr>
+<td><code>cr:sha256</code></td>
+<td><code>xsd:string</code></td>
+<td>SHA-256 hash for data integrity.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="data-article-schema-dataarticleshape">Data Article Schema (<code>DataArticleShape</code>)</h1>
+<h2 id="overview_1">Overview</h2>
+<p>The <code>DataArticleShape</code> extends <strong>Schema.org’s <code>ScholarlyArticle</code></strong> to describe <strong>a research article related to a dataset</strong>.<br />
+This includes metadata about the article, <strong>authorship, publication details, methodology, and citation relationships</strong>.</p>
+<hr />
+<h2 id="key-properties_1"><strong>Key Properties</strong></h2>
+<table>
+<thead>
+<tr>
+<th><strong>Property</strong></th>
+<th><strong>Type</strong></th>
+<th><strong>Description</strong></th>
+<th><strong>Constraints</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>schema:name</code></td>
+<td><code>xsd:string</code></td>
+<td>The title of the article.</td>
+<td>Required</td>
+</tr>
+<tr>
+<td><code>schema:headline</code></td>
+<td><code>xsd:string</code></td>
+<td>The headline or key summary of the article.</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td><code>schema:abstract</code></td>
+<td><code>xsd:string</code></td>
+<td>A textual abstract summarizing the article.</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td><code>schema:author</code></td>
+<td><code>schema:Person</code> or <code>schema:Organization</code></td>
+<td>The author(s) of the article.</td>
+<td>Required (min 1)</td>
+</tr>
+<tr>
+<td><code>schema:datePublished</code></td>
+<td><code>xsd:date</code></td>
+<td>The publication date of the article.</td>
+<td>Required (exactly 1)</td>
+</tr>
+<tr>
+<td><code>schema:isPartOf</code></td>
+<td><code>schema:PublicationIssue</code></td>
+<td>The issue in which the article was published.</td>
+<td>Optional</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="publication-information"><strong>Publication Information</strong></h2>
+<p>Since <strong>articles are often part of journals, books, or conference proceedings</strong>, <code>schema:isPartOf</code> allows linking the article to its <strong>publication issue, volume, and periodical</strong>.</p>
+<h3 id="publication-issue-schemapublicationissue"><strong>Publication Issue (<code>schema:PublicationIssue</code>)</strong></h3>
+<table>
+<thead>
+<tr>
+<th><strong>Property</strong></th>
+<th><strong>Type</strong></th>
+<th><strong>Description</strong></th>
+<th><strong>Constraints</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>schema:issueNumber</code></td>
+<td><code>xsd:string</code></td>
+<td>The issue number where the article is published.</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td><code>schema:isPartOf</code></td>
+<td><code>schema:PublicationVolume</code></td>
+<td>The publication volume containing the issue.</td>
+<td>Optional</td>
+</tr>
+</tbody>
+</table>
+<h3 id="publication-volume-schemapublicationvolume"><strong>Publication Volume (<code>schema:PublicationVolume</code>)</strong></h3>
+<table>
+<thead>
+<tr>
+<th><strong>Property</strong></th>
+<th><strong>Type</strong></th>
+<th><strong>Description</strong></th>
+<th><strong>Constraints</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>schema:volumeNumber</code></td>
+<td><code>xsd:string</code></td>
+<td>The volume number where the article is published.</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td><code>schema:isPartOf</code></td>
+<td><code>schema:Periodical</code></td>
+<td>The periodical in which the volume is published.</td>
+<td>Optional</td>
+</tr>
+</tbody>
+</table>
+<h3 id="periodical-journal-conference-or-book-series-schemaperiodical"><strong>Periodical (Journal, Conference, or Book Series) (<code>schema:Periodical</code>)</strong></h3>
+<table>
+<thead>
+<tr>
+<th><strong>Property</strong></th>
+<th><strong>Type</strong></th>
+<th><strong>Description</strong></th>
+<th><strong>Constraints</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>schema:name</code></td>
+<td><code>xsd:string</code></td>
+<td>The name of the journal, book series, or conference.</td>
+<td>Required</td>
+</tr>
+<tr>
+<td><code>schema:issn</code></td>
+<td><code>xsd:string</code></td>
+<td>The ISSN of the journal (if applicable).</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td><code>schema:publisher</code></td>
+<td><code>schema:Organization</code></td>
+<td>The entity responsible for publishing the periodical.</td>
+<td>Optional</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="example-json-ld-representation-of-a-data-article"><strong>Example: JSON-LD Representation of a Data Article</strong></h2>
+<pre><code class="language-json">{
+  &quot;@context&quot;: [
+    &quot;https://schema.org/&quot;,
+    &quot;https://fair2.ai/ns/&quot;
+  ],
+  &quot;@type&quot;: &quot;ScholarlyArticle&quot;,
+  &quot;name&quot;: &quot;AI-driven Data Processing Techniques&quot;,
+  &quot;headline&quot;: &quot;A novel approach to AI-enhanced data curation.&quot;,
+  &quot;abstract&quot;: &quot;This paper explores AI-driven methodologies for large-scale data curation...&quot;,
+  &quot;author&quot;: {
+    &quot;@type&quot;: &quot;Person&quot;,
+    &quot;name&quot;: &quot;Dr. Jane Doe&quot;,
+    &quot;affiliation&quot;: {
+      &quot;@type&quot;: &quot;Organization&quot;,
+      &quot;name&quot;: &quot;AI Research Lab&quot;
+    }
+  },
+  &quot;datePublished&quot;: &quot;2025-03-01&quot;,
+  &quot;isPartOf&quot;: {
+    &quot;@type&quot;: &quot;PublicationIssue&quot;,
+    &quot;issueNumber&quot;: &quot;4&quot;,
+    &quot;isPartOf&quot;: {
+      &quot;@type&quot;: &quot;PublicationVolume&quot;,
+      &quot;volumeNumber&quot;: &quot;15&quot;,
+      &quot;isPartOf&quot;: {
+        &quot;@type&quot;: &quot;Periodical&quot;,
+        &quot;name&quot;: &quot;Journal of Machine Learning&quot;,
+        &quot;issn&quot;: &quot;1234-5678&quot;,
+        &quot;publisher&quot;: {
+          &quot;@type&quot;: &quot;Organization&quot;,
+          &quot;name&quot;: &quot;ML Publications&quot;,
+          &quot;url&quot;: &quot;https://mlpublications.org&quot;
+        }
+      }
+    }
+  }
+}
+</code></pre>
+<hr />
+<h2 id="methodology-schema-methodshape-stepshape"><strong>Methodology Schema (<code>MethodShape</code> &amp; <code>StepShape</code>)</strong></h2>
+<p>The <strong><code>MethodShape</code></strong> and <strong><code>StepShape</code></strong> document the dataset’s methodology.</p>
+<h3 id="methodshape"><strong>MethodShape</strong></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+<th>Constraints</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>schema:name</code></td>
+<td><code>xsd:string</code></td>
+<td>Section title.</td>
+<td>Required</td>
+</tr>
+<tr>
+<td><code>fair2:step</code></td>
+<td><code>StepShape</code></td>
+<td>Steps in the methodology.</td>
+<td>Required (min 1)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="stepshape"><strong>StepShape</strong></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+<th>Constraints</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>schema:name</code></td>
+<td><code>xsd:string</code></td>
+<td>Step title.</td>
+<td>Required</td>
+</tr>
+<tr>
+<td><code>schema:description</code></td>
+<td><code>xsd:string</code></td>
+<td>Step details.</td>
+<td>Required</td>
+</tr>
+<tr>
+<td><code>schema:nextItem</code></td>
+<td><code>IRI</code></td>
+<td>Reference to the next step.</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td><code>fair2:substep</code></td>
+<td><code>StepShape</code></td>
+<td>Reference to a sub-step.</td>
+<td>Optional</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="resource-types-recordset-field-and-fileobject">Resource Types: RecordSet, Field, and FileObject</h2>
+<p>FAIR² builds on <strong>ML Croissant's metadata model</strong>, integrating <strong>structured representations</strong> for <strong>datasets, records, features, and file distributions</strong>.</p>
+<p>Below is a detailed breakdown of <strong>key properties</strong> for ML Croissant’s <strong><code>RecordSet</code></strong>, <strong><code>Field</code></strong>, and <strong><code>FileObject</code></strong> resources.</p>
+<hr />
+<h2 id="recordset-properties-crrecordset"><strong>RecordSet Properties (<code>cr:RecordSet</code>)</strong></h2>
+<p>A <strong><code>RecordSet</code></strong> represents structured data, such as tabular datasets, containing individual <strong>data records</strong>.</p>
+<table>
+<thead>
+<tr>
+<th><strong>Property</strong></th>
+<th><strong>Type</strong></th>
+<th><strong>Description</strong></th>
+<th><strong>Constraints</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>@context</code></td>
+<td><code>URL</code></td>
+<td>JSON-LD context definitions for metadata.</td>
+<td>Required (exactly 1)</td>
+</tr>
+<tr>
+<td><code>@type</code></td>
+<td><code>Text</code></td>
+<td>Declares the type as <code>cr:RecordSet</code>.</td>
+<td>Required (exactly 1)</td>
+</tr>
+<tr>
+<td><code>schema:name</code></td>
+<td><code>xsd:string</code></td>
+<td>The name of the record set.</td>
+<td>Required (exactly 1)</td>
+</tr>
+<tr>
+<td><code>schema:description</code></td>
+<td><code>xsd:string</code></td>
+<td>A textual description of the record set.</td>
+<td>Required (exactly 1)</td>
+</tr>
+<tr>
+<td><code>cr:fields</code></td>
+<td><code>cr:Field</code></td>
+<td>The list of fields (columns) in the record set.</td>
+<td>Required (min 1)</td>
+</tr>
+<tr>
+<td><code>schema:identifier</code></td>
+<td><code>xsd:anyURI</code></td>
+<td>A unique identifier for the record set.</td>
+<td>Recommended (min 1)</td>
+</tr>
+<tr>
+<td><code>schema:keywords</code></td>
+<td><code>xsd:string</code>, <code>URL</code>, <code>DefinedTerm</code></td>
+<td>Keywords describing the record set.</td>
+<td>Recommended (min 1)</td>
+</tr>
+<tr>
+<td><code>cr:source</code></td>
+<td><code>cr:FileObject</code></td>
+<td>Reference to the data file containing the record set.</td>
+<td>Recommended (min 1)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="field-properties-crfield"><strong>Field Properties (<code>cr:Field</code>)</strong></h2>
+<p>A <strong><code>Field</code></strong> describes <strong>an individual attribute/column</strong> within a <code>RecordSet</code>, specifying <strong>data types, descriptions, and relationships</strong>.</p>
+<table>
+<thead>
+<tr>
+<th><strong>Property</strong></th>
+<th><strong>Type</strong></th>
+<th><strong>Description</strong></th>
+<th><strong>Constraints</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>@context</code></td>
+<td><code>URL</code></td>
+<td>JSON-LD context definitions for metadata.</td>
+<td>Required (exactly 1)</td>
+</tr>
+<tr>
+<td><code>@type</code></td>
+<td><code>Text</code></td>
+<td>Declares the type as <code>cr:Field</code>.</td>
+<td>Required (exactly 1)</td>
+</tr>
+<tr>
+<td><code>schema:name</code></td>
+<td><code>xsd:string</code></td>
+<td>The name of the field.</td>
+<td>Required (exactly 1)</td>
+</tr>
+<tr>
+<td><code>schema:description</code></td>
+<td><code>xsd:string</code></td>
+<td>A description of what the field represents.</td>
+<td>Required (exactly 1)</td>
+</tr>
+<tr>
+<td><code>cr:dataType</code></td>
+<td><code>Text</code></td>
+<td>Data type of the field (e.g., <code>Integer</code>, <code>String</code>, <code>Boolean</code>).</td>
+<td>Required (exactly 1)</td>
+</tr>
+<tr>
+<td><code>cr:example</code></td>
+<td><code>Any</code></td>
+<td>Example values demonstrating typical field content.</td>
+<td>Recommended (min 1)</td>
+</tr>
+<tr>
+<td><code>cr:unitCode</code></td>
+<td><code>Text</code></td>
+<td>The unit of measurement (if applicable).</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td><code>cr:format</code></td>
+<td><code>Text</code></td>
+<td>The expected format of the data (e.g., <code>ISO-8601</code>, <code>float</code>).</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td><code>cr:isRequired</code></td>
+<td><code>Boolean</code></td>
+<td>Indicates if the field is mandatory.</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td><code>cr:hasCategory</code></td>
+<td><code>URL</code></td>
+<td>Link to an external vocabulary defining field values.</td>
+<td>Optional</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="fileobject-properties-crfileobject"><strong>FileObject Properties (<code>cr:FileObject</code>)</strong></h2>
+<p>A <strong><code>FileObject</code></strong> represents <strong>a file containing dataset records</strong>, including its <strong>format, location, and checksum validation</strong>.</p>
+<table>
+<thead>
+<tr>
+<th><strong>Property</strong></th>
+<th><strong>Type</strong></th>
+<th><strong>Description</strong></th>
+<th><strong>Constraints</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>@context</code></td>
+<td><code>URL</code></td>
+<td>JSON-LD context definitions for metadata.</td>
+<td>Required (exactly 1)</td>
+</tr>
+<tr>
+<td><code>@type</code></td>
+<td><code>Text</code></td>
+<td>Declares the type as <code>cr:FileObject</code>.</td>
+<td>Required (exactly 1)</td>
+</tr>
+<tr>
+<td><code>schema:name</code></td>
+<td><code>xsd:string</code></td>
+<td>The name of the file.</td>
+<td>Required (exactly 1)</td>
+</tr>
+<tr>
+<td><code>schema:description</code></td>
+<td><code>xsd:string</code></td>
+<td>A textual description of the file contents.</td>
+<td>Required (exactly 1)</td>
+</tr>
+<tr>
+<td><code>schema:contentUrl</code></td>
+<td><code>xsd:anyURI</code></td>
+<td>The URL or file path where the file can be accessed.</td>
+<td>Required (exactly 1)</td>
+</tr>
+<tr>
+<td><code>schema:encodingFormat</code></td>
+<td><code>xsd:string</code></td>
+<td>File format (e.g., <code>text/csv</code>, <code>application/json</code>).</td>
+<td>Required (exactly 1)</td>
+</tr>
+<tr>
+<td><code>cr:sha256</code></td>
+<td><code>xsd:string</code></td>
+<td>SHA-256 hash of the file for integrity verification.</td>
+<td>Recommended (exactly 1)</td>
+</tr>
+<tr>
+<td><code>schema:contentSize</code></td>
+<td><code>xsd:integer</code></td>
+<td>Size of the file in bytes.</td>
+<td>Recommended (exactly 1)</td>
+</tr>
+<tr>
+<td><code>schema:dateCreated</code></td>
+<td><code>xsd:date</code></td>
+<td>The date the file was created.</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td><code>schema:dateModified</code></td>
+<td><code>xsd:date</code></td>
+<td>The date the file was last modified.</td>
+<td>Optional</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="why-use-fair2-schema"><strong>Why Use FAIR² Schema?</strong></h2>
+<p><strong>Extends ML Croissant</strong> – Built on a widely adopted AI metadata framework.<br />
+<strong>AI-Ready</strong> – Structured metadata makes datasets easy to use in <strong>PyTorch</strong> &amp; <strong>TensorFlow</strong>.<br />
+<strong>Validation with SHACL</strong> – Ensures datasets meet compliance and interoperability standards.<br />
+<strong>Supports Research Integrity</strong> – Includes metadata for <strong>data articles and methodologies</strong>.  </p>
+<hr />
+<h2 id="next-steps"><strong>Next Steps</strong></h2>
+<ul>
+<li><strong><a href="../shacl-validation/">Validate your dataset</a></strong> with SHACL.</li>
+<li><strong><a href="examples.md">See dataset examples</a></strong> to understand real-world usage.</li>
+<li><strong><a href="../../technical/json-ld/">Learn about JSON-LD &amp; RDF</a></strong> for AI-ready metadata.</li>
+</ul>
+<hr />
+<p><em>Last updated: [03/03/2025]</em>  </p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      
+    
+  </body>
+</html>
